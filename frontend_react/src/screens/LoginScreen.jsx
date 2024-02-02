@@ -46,6 +46,7 @@ const LoginScreen = () => {
                         placeholder='Enter Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        style={{ marginBottom: '10px' }}
                     >
                     </Form.Control>
                 </Form.Group>
@@ -57,12 +58,17 @@ const LoginScreen = () => {
                         placeholder='Enter Password'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        style={{ marginBottom: '10px' }}
                     >
                     </Form.Control>
                 </Form.Group>
 
 
-                <Button type='submit' variant='primary'>
+                <Button 
+                type='submit' 
+                variant='primary'
+                style={{ marginTop: '10px' }}
+                >
                     Sign In
                 </Button>
             </Form>
