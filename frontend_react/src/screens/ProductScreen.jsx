@@ -13,7 +13,7 @@ const ProductScreen = () => {
   const [qty, setQty] = useState(1)
 
   const history = useNavigate()
-  const productId = useParams(); // Using useParams to get the id parameter
+  const productId = useParams()
   const dispatch = useDispatch()
   const productDetails = useSelector(state => state.productDetails)
   const { loading, error, product } = productDetails
