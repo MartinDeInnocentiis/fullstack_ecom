@@ -7,12 +7,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap'
-import {logout} from '../actions/userActions'
+import { logout } from '../actions/userActions'
 
 const Header = () => {
 
-  const userLogin = useSelector (state => state.userLogin)
-  const {userInfo} = userLogin
+  const userLogin = useSelector(state => state.userLogin)
+  const { userInfo } = userLogin
 
   const dispatch = useDispatch()
 
@@ -36,7 +36,7 @@ const Header = () => {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              
+
               <LinkContainer to='/cart'>
                 <Nav.Link><i className='fas fa-shopping-cart'></i>Cart</Nav.Link>
               </LinkContainer>
@@ -48,13 +48,33 @@ const Header = () => {
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
 
-                </NavDropdown> 
+                </NavDropdown>
               ) : (
                 <LinkContainer to='/login'>
-                <Nav.Link><i className='fas fa-user'></i>Login</Nav.Link>
-              </LinkContainer>
+                  <Nav.Link><i className='fas fa-user'></i>Login</Nav.Link>
+                </LinkContainer>
               )}
-              
+
+
+              {userInfo && userInfo.isAdmin && (
+
+                <NavDropdown title='Admin' id='adminmenu'>
+                  <LinkContainer to='/admin/userlist'>
+                    <NavDropdown.Item>Users</NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to='/admin/productlist'>
+                    <NavDropdown.Item>Products</NavDropdown.Item>
+                  </LinkContainer>
+
+                  <LinkContainer to='/admin/orderlist'>
+                    <NavDropdown.Item>Orders</NavDropdown.Item>
+                  </LinkContainer>
+
+                </NavDropdown>
+
+              )}
+
             </Nav>
           </Navbar.Collapse>
         </Container>
