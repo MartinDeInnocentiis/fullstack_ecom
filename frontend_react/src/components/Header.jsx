@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { LinkContainer } from 'react-router-bootstrap'
+import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
 
 const Header = () => {
@@ -30,9 +31,10 @@ const Header = () => {
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+          <Navbar.Collapse id="basic-navbar-nav">
+            <SearchBox/>
             <Nav
-              className="mr-auto my-2 my-lg-0"
+              className="mr-auto"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
